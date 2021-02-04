@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Tennis
 {
-    public class TennisGameScoreStateMachine
+    public static class TennisGameScoreStateMachine
     {
-        public string SetScore(int playerOneScore, int playerTwoScore)
+        public static string SetScore(int playerOneScore, int playerTwoScore)
         {
             string score = default;
             int scoreDifferential = playerOneScore - playerTwoScore;
@@ -16,7 +16,7 @@ namespace Tennis
             return score;
         }
 
-        private string PlayerScoreMatch(int playerOneScore) => (playerOneScore) switch
+        private static string PlayerScoreMatch(int playerOneScore) => (playerOneScore) switch
         {
             0 => TennisScoreConstants.Love + TennisScoreConstants.All,
             1 => TennisScoreConstants.Fifteen + TennisScoreConstants.All,
@@ -24,7 +24,7 @@ namespace Tennis
             _ => TennisScoreConstants.Deuce,
         };
 
-        private string PlayerScoreAdvantageOrWin(int scoreDifferential)
+        private static string PlayerScoreAdvantageOrWin(int scoreDifferential)
         {
 
             if (scoreDifferential == 1) return TennisScoreConstants.Advantage + TennisScoreConstants.PlayerOne;
@@ -33,7 +33,7 @@ namespace Tennis
             else return TennisScoreConstants.Win + TennisScoreConstants.PlayerTwo;
         }
 
-        private string TempScore(int playerOneScore, int playerTwoScore, string score)
+        private static string TempScore(int playerOneScore, int playerTwoScore, string score)
         {
             for (int i = 1; i < 3; i++)
             {
@@ -44,13 +44,13 @@ namespace Tennis
             return score;
         }
 
-        private string PlayerPoints(int playerScore) => (playerScore) switch
+        private static string PlayerPoints(int playerScore) => (playerScore) switch
         {
             0 => TennisScoreConstants.Love,
             1 => TennisScoreConstants.Fifteen,
             2 => TennisScoreConstants.Thirty,
             3 => TennisScoreConstants.Forty,
-            _ => "N/A",
+            _ => TennisScoreConstants.NA,
         };
     }
 }

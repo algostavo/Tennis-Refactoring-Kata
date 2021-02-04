@@ -16,6 +16,7 @@ namespace Tennis
         public const string Thirty = "Thirty";
         public const string Forty = "Forty";
         public const string Deuce = "Deuce";
+        public const string NA = "N/A"; 
 
         public const string Advantage = "Advantage ";
         public const string Win = "Win for ";

@@ -19,11 +19,7 @@ namespace Tennis
                 m_score2 += 1;
         }
 
-        public string GetScore()
-        {
-            var stateMachine = new TennisGameScoreStateMachine();
-            return stateMachine.SetScore(m_score1, m_score2);
-        }
+        public string GetScore() => TennisGameScoreStateMachine.SetScore(m_score1, m_score2);
     }
 }
 
